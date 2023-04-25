@@ -33,7 +33,7 @@ class AuthApi extends Controller
         if (Auth::attempt(['email' => $email, 'password' => $password])) 
         {
             $user = User::find(Auth::user()->id);
-            print_r($user);exit;
+            
             $ReferralRegister = ReferralRegister::where('user_id',Auth::user()->id)->first();
             
             $res = array(
