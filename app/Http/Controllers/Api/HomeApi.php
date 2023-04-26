@@ -1124,13 +1124,15 @@ class HomeApi extends Controller
             
         }
 
-        if($request->type=="category")
+        if($input="category")
         {
-            $category = CategoryFrame::where("category_id",$request->id)->where('status',1)->get();
+            // $category = CategoryFrame::where("category_id",$request->id)->where('status',1)->get();
+            $category = CategoryFrame::where("status",1)->get();
 
             if(!$category->isEmpty())
             {
-                $category = CategoryFrame::where("category_id",$request->id)->where('status',1)->inRandomOrder()->get();
+                // $category = CategoryFrame::where("category_id",$request->id)->where('status',1)->inRandomOrder()->get();
+                $category =  CategoryFrame::where("status",1)->get()->all();
 
                 foreach ($category as $c) 
                 {
