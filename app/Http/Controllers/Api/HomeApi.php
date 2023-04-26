@@ -1084,7 +1084,9 @@ class HomeApi extends Controller
 
     public function getPost(Request $request) 
     {
-        print_r($request);exit;
+        $input=$request->type;
+        print_r($input);
+        exit();
         if($request->type=="festival")
         
         {
