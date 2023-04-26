@@ -1088,7 +1088,8 @@ class HomeApi extends Controller
         
         if($input=="festival")
         {
-            $festival = FestivalsFrame::where("festivals_id",$request->festivals_id)->where('status',1)->get();
+            // $festival = FestivalsFrame::where("festivals_id",$request->id)->where('status',1)->get();
+            $festival = FestivalsFrame::where("status",1)->get();
            print_r($festival);
            exit();
 
