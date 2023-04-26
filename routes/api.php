@@ -3,21 +3,29 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.routes.prefix'))->group(function(){
-   
-	//Route::post('/login', 'AuthApi@login');
-    Route::post('/login', [AuthApi::class, 'login']);
+// Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.routes.prefix'))->group(function(){
+
+// 	//Route::post('/login', 'AuthApi@login');
+//     Route::post('/login', [AuthApi::class, 'login']);
+//     Route::post('/registration', 'AuthApi@registration');
+//     Route::post('/google-registration', 'AuthApi@google_registration');
+//     Route::post('/phone-login', 'AuthApi@phone_login');
+//     Route::post('/forgot-password', 'AuthApi@forgot_password');
+// });
+
+Route::prefix(config('constants.routes.prefix'))->group(function () {
+    Route::post('/login', 'AuthApi@login');
     Route::post('/registration', 'AuthApi@registration');
     Route::post('/google-registration', 'AuthApi@google_registration');
     Route::post('/phone-login', 'AuthApi@phone_login');
     Route::post('/forgot-password', 'AuthApi@forgot_password');
-});
+})->namespace('Api')->middleware('throttle');
 
-Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.routes.prefix'))->group(function(){
+Route::namespace('Api')->middleware(['throttle'])->prefix(config('constants.routes.prefix'))->group(function () {
     Route::post('/change-password', 'AuthApi@change_password');
     // Route::post('/register-fcm', 'AuthApi@register_fcm');
     // Route::post('/logout', 'AuthApi@logout');
-    Route::post('/verify-account', 'AuthApi@verifyAccount'); 
+    Route::post('/verify-account', 'AuthApi@verifyAccount');
     Route::post('/resend-verify-code', 'AuthApi@resendVerifyCode');
 
     Route::get('/user', 'AuthApi@user_data');
@@ -43,12 +51,12 @@ Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.rou
 
     Route::post('/create-payment', 'HomeApi@addPayment');
     Route::post('stripe-payment', 'HomeApi@stripePayment');
-    Route::post('paytm-payment','HomeApi@paytmPayment');
+    Route::post('paytm-payment', 'HomeApi@paytmPayment');
     // Route::post('verify-Paytm-payment','HomeApi@verifyPaytmPayment');
     Route::post('offline-payment', 'HomeApi@offlinePayment');
     Route::get('/payment-details', 'HomeApi@getPaymentDetails');
     Route::post('/create-order-cashfree', 'HomeApi@create_order_cashfree');
-    Route::post('get-val','HomeApi@get_val');
+    Route::post('get-val', 'HomeApi@get_val');
 
     Route::get('/contact-subject', 'HomeApi@getContactSubject');
     Route::post('/contact-massage', 'HomeApi@postContacts');
@@ -81,9 +89,9 @@ Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.rou
     Route::post('/profile-card-image-upload', 'HomeApi@profile_card_image_upload');
     Route::get('/business-card-list', 'HomeApi@business_card_list');
 
-    Route::Post('whatsapp-api','HomeApi@whatsapp_api');
+    Route::Post('whatsapp-api', 'HomeApi@whatsapp_api');
 });
 
 Route::middleware('auth:api')->post('/user', function (Request $request) {
-	return $request->user();
+    return $request->user();
 });
