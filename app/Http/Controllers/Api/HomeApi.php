@@ -1165,9 +1165,11 @@ class HomeApi extends Controller
 
     public function getVideo(Request $request)
     {
-        if($request->type=="festival")
+        $input=$request->type;
+        if($input=="festival")
         {
-            $video = Video::where("type","festival")->where("festival_id",$request->id)->where('status',1)->get();
+            // $video = Video::where("type","festival")->where("festival_id",$request->id)->where('status',1)->get();
+            $video = Video::where("status",1)->get();
 
             if(!$video->isEmpty())
             {
