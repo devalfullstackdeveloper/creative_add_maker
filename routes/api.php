@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.routes.prefix'))->group(function(){
    
-	Route::post('/login', 'AuthApi@login');
+	//Route::post('/login', 'AuthApi@login');
+    Route::post('/login', [AuthApi::class, 'login']);
     Route::post('/registration', 'AuthApi@registration');
     Route::post('/google-registration', 'AuthApi@google_registration');
     Route::post('/phone-login', 'AuthApi@phone_login');
