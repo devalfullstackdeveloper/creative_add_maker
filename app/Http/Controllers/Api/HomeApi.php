@@ -1084,8 +1084,9 @@ class HomeApi extends Controller
 
     public function getPost(Request $request) 
     {
-        if($request->type=="festival")
         print_r($request);exit;
+        if($request->type=="festival")
+        
         {
             $festival = FestivalsFrame::where("festivals_id",$request->id)->where('status',1)->get();
             
