@@ -1094,8 +1094,11 @@ class HomeApi extends Controller
             if(!$festival->isEmpty())
             {
                 // $festival = FestivalsFrame::where("festivals_id",$request->id)->where('status',1)->inRandomOrder()->get();
-                $festival =  FestivalsFrame::where("status",1)->get();
-               
+                $festival =  FestivalsFrame::where("festivals_id",$request->id)->where("status",1)->inRandomOrder()->get();
+                echo "<pre>";
+        print_r($festival);
+        echo "</pre>";
+        exit();
                 foreach ($festival as $f) 
                 {
                     $data = array(
