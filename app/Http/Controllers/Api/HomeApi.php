@@ -1170,14 +1170,16 @@ class HomeApi extends Controller
         {
             // $video = Video::where("type","festival")->where("festival_id",$request->id)->where('status',1)->get();
             $video = Video::where("status",1)->get();
-           
+           print_r($video);
+           exit();
             if(!$video->isEmpty())
             {
-                $video = Video::where("status",1)->get()->all();
+                $video = Video::where("type","festival")->where("status",1)->get()->all();
+
                 foreach ($video as $v) 
                 {
                     $data[] = array(
-                        "postId" => $v->festival->title."".$v->id,
+                        "postId" => $v->festivals->title."".$v->id,
                         "id" => $v->festival_id,
                         "type" => "festival",
                         "language" => $v->language->title,
