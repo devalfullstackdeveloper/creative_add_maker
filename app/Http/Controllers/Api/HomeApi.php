@@ -1090,8 +1090,7 @@ class HomeApi extends Controller
         {
             // $festival = FestivalsFrame::where("festivals_id",$request->id)->where('status',1)->get();
             $festival = FestivalsFrame::where("status",1)->get();
-           print_r($festival);
-           exit();
+          
 
             if(!$festival->isEmpty())
             {
