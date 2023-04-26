@@ -36,6 +36,8 @@ class CategoryFrameController extends Controller
 
     public function store(Request $request)
     {
+        // echo phpinfo();
+        // exit;
         // dd($request->all());
         $validation = Validator::make($request->all(), [
             "category_id" => 'required',
@@ -382,6 +384,7 @@ class CategoryFrameController extends Controller
 
     public function getAspectRatio(int $width, int $height)
     {
+        
         $divisor = gmp_intval(gmp_gcd($width,$height));
         return $width / $divisor . ':' . $height / $divisor;
     }
