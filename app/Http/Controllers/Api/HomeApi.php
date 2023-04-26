@@ -1199,9 +1199,10 @@ class HomeApi extends Controller
             return $data;
         }
 
-        if($request->type=="category")
+        if($input=="category")
         {
-            $video = Video::where("type","category")->where("category_id",$request->id)->where('status',1)->get();
+            // $video = Video::where("type","category")->where("category_id",$request->id)->where('status',1)->get();
+            $video = Video::where("type","category")->where("status",1)->get()->all();
 
             if(!$video->isEmpty())
             {
