@@ -1094,14 +1094,14 @@ class HomeApi extends Controller
             if(!$festival->isEmpty())
             {
                 // $festival = FestivalsFrame::where("festivals_id",$request->id)->where('status',1)->inRandomOrder()->get();
-                $festival =  FestivalsFrame::where("status",1)->get()->all()->toArray();
+                $festival =  FestivalsFrame::where("status",1)->get()->all();
                 echo "<pre>";
         print_r($festival);
         echo "</pre>";
         exit();
                 foreach ($festival as $f) 
                 {
-                    $data = array(
+                    $data[] = array(
                         "postId" => $f->festivals->title."".$f->id,
                         "id" => $f->festivals_id,
                         "type" => "festival",
