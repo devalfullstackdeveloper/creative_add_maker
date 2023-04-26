@@ -1230,12 +1230,13 @@ class HomeApi extends Controller
             return $data;
         }
 
-        if($request->type=="business")
+        if($input=="business")
         {
-            $video = Video::where("type","business")->where("business_category_id",$request->id)->where('status',1)->get();
-
+            // $video = Video::where("type","business")->where("business_category_id",$request->id)->where('status',1)->get();
+            $video = Video::where("status",1)->get();
             if(!$video->isEmpty())
             {
+                $video = Video::where("type","business")->where("status",1)->get()->all();
                 foreach ($video as $v) 
                 {
                     $data[] = array(
