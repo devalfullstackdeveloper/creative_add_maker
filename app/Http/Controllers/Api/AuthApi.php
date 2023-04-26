@@ -27,7 +27,7 @@ class AuthApi extends Controller
 {
     public function login(Request $request)
     {
-        echo "here";exit;
+        
         $email = $request->get("email");
         $password = $request->get("password");
         
