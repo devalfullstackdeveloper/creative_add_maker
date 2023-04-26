@@ -1176,7 +1176,7 @@ class HomeApi extends Controller
                 foreach ($video as $v) 
                 {
                     $data[] = array(
-                        "postId" => $v->festival->title."".$v->id,
+                        "postId" => $v->festivals->title."".$v->id,
                         "id" => $v->festival_id,
                         "type" => "festival",
                         "language" => $v->language->title,
