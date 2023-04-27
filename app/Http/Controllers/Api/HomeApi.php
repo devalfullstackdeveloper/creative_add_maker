@@ -968,7 +968,7 @@ class HomeApi extends Controller
             ], 404);
         } else {
             //$business = Business::where('user_id',$request->userId)->get();
-            $business = Business::where('bussinessId',$request->get("bussinessId"))->first();
+            $business = Business::where('id',$request->get("bussinessId"))->first();
             print_r($business);
             exit();
             $business->name = $request->get("bussinessName");
