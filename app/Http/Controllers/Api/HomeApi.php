@@ -1716,7 +1716,8 @@ class HomeApi extends Controller
             "clientSecret" => $request->clientSecret,
             "Content-Type" => "application/json",
         );
-
+       print_r($header);
+       exit();
         $body = '{
             "waId" : "'.$request->waId.'"
         }';
