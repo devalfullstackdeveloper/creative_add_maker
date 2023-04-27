@@ -1724,7 +1724,7 @@ class HomeApi extends Controller
         $client = new \GuzzleHttp\Client([
             'headers' => $header
         ]);
-        $response = $client->request('send', $request->url, [
+        $response = $client->request('POST', $request->url, [
             'body' => $body
         ]);
 
