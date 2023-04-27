@@ -1724,12 +1724,12 @@ class HomeApi extends Controller
         $client = new \GuzzleHttp\Client([
             'headers' => $header
         ]);
-        print_r($client);
-        exit();
+        
         $response = $client->request('POST', $request->url, [
             'body' => $body
         ]);
-
+        print_r($response);
+        exit();
         $res = $response->getBody()->getContents();
 
         return json_decode($res,true);
