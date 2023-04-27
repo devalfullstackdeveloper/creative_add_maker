@@ -507,7 +507,7 @@ class HomeApi extends Controller
         }
         else
         {
-            $path = 'uploads/';
+            $path = 'uploads/pdf';
 
             if ($handle = opendir($path)) {
                 while (false !== ($file = readdir($handle))) { 
