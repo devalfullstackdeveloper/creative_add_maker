@@ -1391,7 +1391,8 @@ class HomeApi extends Controller
             foreach ($validation->errors()->messages() as $key => $value) {
                 $errors[] = is_array($value) ? implode(',', $value) : $value;
             }
-
+            print_r($errors);
+            exit();
             return response()->json([
               'status' => "Error",
               'message' => $errors,
