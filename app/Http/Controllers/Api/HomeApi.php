@@ -516,7 +516,7 @@ class HomeApi extends Controller
                         //24 hours in a day * 3600 seconds per hour
                         if((time() - $filelastmodified) > 24*3600)
                         {
-                                rmdir($path . $file);
+                                rmdir($path , $file);
                         }
                     }
 
@@ -1401,8 +1401,7 @@ class HomeApi extends Controller
         {
             try {
                 $stripe = new \Stripe\StripeClient(PaymentSetting::getPaymentSetting('stripe_secret_key'));
-                print_r($stripe);
-                exit();
+          
                 $customer = $stripe->customers->create();
 
                 $ephemeralKey = $stripe->ephemeralKeys->create([
