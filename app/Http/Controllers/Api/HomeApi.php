@@ -1720,11 +1720,12 @@ class HomeApi extends Controller
         $body = '{
             "waId" : "'.$request->waId.'"
         }';
-        print_r($body);
-        exit();
+       
         $client = new \GuzzleHttp\Client([
             'headers' => $header
         ]);
+        print_r($client);
+        exit();
         $response = $client->request('POST', $request->url, [
             'body' => $body
         ]);
