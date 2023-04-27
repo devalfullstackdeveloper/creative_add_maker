@@ -1725,14 +1725,11 @@ class HomeApi extends Controller
             'headers' => $header
            
         ]);
-        print_r($header);
         
         $response = $client->request('POST', $request->url, [
             'body' => $body
         ]);
-        print_r($body);
-        exit();
-
+   
         $res = $response->getBody()->getContents();
 
         return json_decode($res,true);
