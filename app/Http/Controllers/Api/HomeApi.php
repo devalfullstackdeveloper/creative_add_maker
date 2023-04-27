@@ -1477,8 +1477,8 @@ class HomeApi extends Controller
                     'message' => json_encode($error_msg)
                 ];
             }
-            
-            return response()->json($data);
+            return ($data);
+            // return response()->json($data);
 
             // $user = User::find($request->user_id);
             // $customer['name'] = $user->name;
