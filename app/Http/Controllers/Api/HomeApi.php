@@ -1401,7 +1401,8 @@ class HomeApi extends Controller
         {
             try {
                 $stripe = new \Stripe\StripeClient(PaymentSetting::getPaymentSetting('stripe_secret_key'));
-
+                print_r($stripe);
+                exit();
                 $customer = $stripe->customers->create();
 
                 $ephemeralKey = $stripe->ephemeralKeys->create([
@@ -1424,8 +1425,7 @@ class HomeApi extends Controller
                     'ephemeralKey' => $ephemeralKey->secret,
                     'customer' => $customer->id,
                     'publishableKey' => PaymentSetting::getPaymentSetting('stripe_publishable_Key')
-                );  print_r($data);
-                    exit();
+                );  
             } catch (\Stripe\Exception\CardException $e) {
                 // Since it's a decline, \Stripe\Exception\CardException will be caught
                 $error_msg = $e->getError()->message;
