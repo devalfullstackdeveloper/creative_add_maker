@@ -516,7 +516,7 @@ class HomeApi extends Controller
                         //24 hours in a day * 3600 seconds per hour
                         if((time() - $filelastmodified) > 24*3600)
                         {
-                            unlink($path . $file);
+                            unlink($path."/". $file);
                         }
                     }
 
