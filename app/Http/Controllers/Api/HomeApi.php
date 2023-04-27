@@ -1732,7 +1732,7 @@ class HomeApi extends Controller
    
         $res = $response->getBody()->getContents();
 
-        return json_decode($res);
+        return ($res);
     }
 
     public function addPayment(Request $request)
