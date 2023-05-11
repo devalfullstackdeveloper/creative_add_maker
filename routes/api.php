@@ -12,7 +12,8 @@ Route::namespace ('Api')->prefix(config('constants.routes.prefix'))->group(funct
     Route::post('/forgot-password', 'AuthApi@forgot_password');
 });
 
-Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.routes.prefix'))->group(function(){
+// Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.routes.prefix'))->group(function(){
+Route::namespace ('Api')->prefix(config('constants.routes.prefix'))->group(function(){
     Route::post('/change-password', 'AuthApi@change_password');
     // Route::post('/register-fcm', 'AuthApi@register_fcm');
     // Route::post('/logout', 'AuthApi@logout');
