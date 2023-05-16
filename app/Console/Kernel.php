@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
     {
         //$schedule->command('inspire')->hourly();
         $schedule->command('cache:clear')->everyMinute();
-        Log::info('cache clear done....');
+        File::put('file.txt', 'clear cache done.....');
     }
 
     /**
