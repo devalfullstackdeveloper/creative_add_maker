@@ -138,17 +138,7 @@ class CustomPostFrameController extends Controller
                         $zip->extractTo('./uploads/template/'.$zip_name);
                         $zip->close();
                     } 
-                    echo $file_name;
-                    echo "<br11>";
-                    echo '/uploads/template/'.$zip_name.'/'.$zip_original_name.'/fonts'."rem1". './uploads/template/'.$zip_name.'/fonts';
-                    echo "<br2>";
-                    echo './uploads/template/'.$zip_name.'/'.$zip_original_name.'/json'."rem2". './uploads/template/'.$zip_name.'/json';
-                    echo "<br3>";
-                    echo './uploads/template/'.$zip_name.'/'.$zip_original_name.'/logs'."rem3". './uploads/template/'.$zip_name.'/logs';
-                    echo "<br4>";
-                    echo './uploads/template/'.$zip_name.'/'.$zip_original_name.'/skins'."rem4". './uploads/template/'.$zip_name.'/skins';
-                    echo "<br>";
-                    exit;
+             
                     unlink('./uploads/template/'.$file_name);
                     rename('./uploads/template/'.$zip_name.'/'.$zip_original_name.'/fonts', './uploads/template/'.$zip_name.'/fonts');
                     rename('./uploads/template/'.$zip_name.'/'.$zip_original_name.'/json', './uploads/template/'.$zip_name.'/json');
