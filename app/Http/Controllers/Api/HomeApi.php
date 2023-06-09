@@ -2741,6 +2741,6 @@ class HomeApi extends Controller
     
     public function showPrivacyPolicy()
     {
-        return view('privacy-policy');
+        return view('privacy-policy.index');
     }
 }
