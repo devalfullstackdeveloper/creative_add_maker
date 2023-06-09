@@ -83,7 +83,7 @@ Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.rou
     Route::get('/business-card-list', 'HomeApi@business_card_list');
 
     Route::Post('whatsapp-api','HomeApi@whatsapp_api');
-    Route::Post('/privacy-policy','HomeApi@showPrivacyPolicy');
+    Route::get('/privacy-policy','HomeApi@showPrivacyPolicy');
     
 });
 
