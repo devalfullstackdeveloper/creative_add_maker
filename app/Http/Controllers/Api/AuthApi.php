@@ -842,24 +842,27 @@ class AuthApi extends Controller
     }
 
     public function deleteAccount(Request $request){
-        $username = $request->input('username');
-        $password = $request->input('password');
-
-        $user = User::where('username', $username)->first();
-
-        // Check if the user exists
-        if (!$user) {
-            return response()->json(['message' => 'User not found'], 404);
-        }
-
-        // Verify the user's password
-        if (!Hash::check($password, $user->password)) {
-            return response()->json(['message' => 'Incorrect password'], 401);
-        }
-        // Soft delete the user account
-        $user->delete();
+        $email = $request->get("email");
+        $password = $request->get("password");
         
-        return response()->json(['message' => 'Account soft-deleted successfully']);
+        if (Auth::attempt(['email' => $email, 'password' => $password])) 
+        {
+            $user = User::find(Auth::user()->id);
+            if($user != ''){
+                
+            }
+            
+           
+        } 
+        else 
+        {
+            return response()->json([
+                'status' => "Error",
+                'message' => "Invalid Login Credentials",
+            ], 404);
+        }
+
+        return response()->json($res);
     }
 }
 
