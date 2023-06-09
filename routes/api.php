@@ -10,7 +10,7 @@ Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.rou
     Route::post('/google-registration', 'AuthApi@google_registration');
     Route::post('/phone-login', 'AuthApi@phone_login');
     Route::post('/forgot-password', 'AuthApi@forgot_password');
-    Route::post('/forgot-password', 'AuthApi@deleteAccount');
+    Route::post('/delete-account', 'AuthApi@deleteAccount');
     
 });
 Route::namespace ('Api')->middleware(['throttle'])->prefix(config('constants.routes.prefix'))->group(function(){
