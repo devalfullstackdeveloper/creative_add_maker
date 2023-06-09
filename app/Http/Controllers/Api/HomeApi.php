@@ -2738,4 +2738,9 @@ class HomeApi extends Controller
         $image->$field = $fileName;
         $image->save();
     }
+    
+    public function showPrivacyPolicy()
+    {
+        return view('privacy-policy');
+    }
 }
