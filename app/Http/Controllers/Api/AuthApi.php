@@ -849,9 +849,13 @@ class AuthApi extends Controller
         {
             $user = User::find(Auth::user()->id);
             if($user != ''){
+                $user->delete();
+                return response()->json([
+                    'status' => "Succsess",
+                    'message' => "Account deleted successfully",
+                ], 200);
                 
-            }
-            
+            }            
            
         } 
         else 
@@ -862,7 +866,7 @@ class AuthApi extends Controller
             ], 404);
         }
 
-        return response()->json($res);
+        //return response()->json($res);
     }
 }
 
